@@ -5,8 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SmallPaint"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="SmallPaint" Height="500" Width="800" WindowStartupLocation="CenterScreen" FontFamily="Comic Sans MS" FontSize="16" Icon="Resources/Paint.ico" FontWeight="Bold" MouseDown="Window_MouseDown" MouseMove="Window_MouseMove" MouseUp="Window_MouseUp">
+    <Grid Background="#FFC8C8AA">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="67*"/>
+            <RowDefinition Height="404*"/>
+        </Grid.RowDefinitions>
+        <Canvas x:Name="gCanva" HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="750" Margin="20,20,0,0" Background="#FFFAF9F9" Grid.RowSpan="2" />
+        <Slider x:Name="sliderSize" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Margin="168,315.8,0,0" RenderTransformOrigin="0.5,0.5" Width="123" Minimum="1" ValueChanged="sliderSize_ValueChanged" Grid.Row="1" SelectionStart="1" SelectionEnd="30" IsSelectionRangeEnabled="True">
+            <Slider.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1.5" ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Slider.RenderTransform>
+        </Slider>
+
+        <Button x:Name="btnClear" Content="Clear" HorizontalAlignment="Left" VerticalAlignment="Top" Width="106" Margin="660,298.4,0,0" Height="62" Click="btnClear_Click" Grid.Row="1"/>
+
+        <StackPanel HorizontalAlignment="Left" Height="130
+                    " VerticalAlignment="Top" Width="94" Margin="40,264.8,0,-1.6" Grid.Row="1">
+            <RadioButton GroupName="Colors" x:Name="rbGreen" Content="Green" FontWeight="Bold" Checked="rbGreen_Checked" Margin="0,0,0.4,0"/>
+            <RadioButton GroupName="Colors" x:Name="rbYellow" Content="Yellow" Checked="rbYellow_Checked"/>
+            <RadioButton GroupName="Colors" x:Name="rbBlue" Content="Blue" Canvas.Left="80" Canvas.Top="360" Checked="rbBlue_Checked"/>
+            <RadioButton GroupName="Colors" x:Name="rbWhite" Content="White" Canvas.Left="220" Canvas.Top="320" Checked="rbWhite_Checked"/>
+            <RadioButton GroupName="Colors" x:Name="rbBlack" Content="Black" Canvas.Left="220" Canvas.Top="360" Checked="rbBlack_Checked"/>
+            <RadioButton GroupName="Colors" x:Name="rbRed" Content="Red" Canvas.Left="220" Canvas.Top="400" Checked="rbRed_Checked" Height="44"/>
+        </StackPanel>
+        <Ellipse x:Name="currentColor" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="60" Stroke="Black" VerticalAlignment="Top" Width="59" Margin="140,299.8,0,0" Grid.Row="1"/>
+        <Label Content="+ pen" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,258.8,0,0" Grid.Row="1"/>
+        <Label Content="- pen" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,360.8,0,0" Grid.Row="1"/>
+
     </Grid>
 </Window>
